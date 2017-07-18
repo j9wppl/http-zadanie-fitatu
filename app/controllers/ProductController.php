@@ -21,6 +21,7 @@ class ProductController extends BaseController
     public function index()
     {
         $products = $this->productRepository->all();
+        $products->load('category');
         $this->layout = View::make('products', compact('products'));
     }
 }

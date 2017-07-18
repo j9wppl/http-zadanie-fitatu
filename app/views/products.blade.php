@@ -5,6 +5,7 @@
             <thead>
                 <tr>
                     <th>{{trans('nazwa')}}</th>
+                    <th>{{trans('kategoria')}}</th>
                     <th>{{trans('cena netto')}}</th>
                     <th>{{trans('cena brutto')}}</th>
                     <th>{{trans('stawka VAT')}}</th>
@@ -14,6 +15,7 @@
             @foreach($products as $product)
                 <tr>
                     <td>{{{$product->name}}}</td>
+                    <td>{{{$product->category->name}}}</td>
                     <td>{{{$product->price_net}}}</td>
                     <td>{{{$product->price_gross}}}</td>
                     <td>{{{$product->tax->rate}}}</td>
