@@ -37,7 +37,7 @@ class CreateTables extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onUpdate('CASCADE')
-                ->onDelete('RESTIRCT');
+                ->onDelete('RESTRICT');
             $table->foreign('tax_id', 'fk_taxes')
                 ->references('id')
                 ->on('taxes')
