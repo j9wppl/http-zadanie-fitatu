@@ -55,8 +55,15 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->unsignedInteger('cart_id');
             $table->unsignedInteger('product_id');
+            $table->unsignedInteger('price_net');
+            $table->unsignedInteger('price_gross');
             $table->unsignedInteger('quantity');
             $table->timestamps();
+            $table->foreign('cart_id', 'fk_carts')
+                ->references('id')
+                ->on('carts')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 

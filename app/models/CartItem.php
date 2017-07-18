@@ -13,4 +13,21 @@ class CartItem extends Ardent
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    /**
+     * @return int
+     */
+    public function getValueGrossAttribute()
+    {
+        return $this->price_gross * $this->quantity;
+    }
+
+    /**
+     * @param array $models
+     * @return static
+     */
+    public function newCollection(array $models = array())
+    {
+        return CartItemCollection::make($models);
+    }
 }

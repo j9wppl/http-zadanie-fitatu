@@ -6,11 +6,8 @@ class Category extends Ardent
 {
     protected $table = 'categories';
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function category()
+    public function __toString()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->name;
     }
 }

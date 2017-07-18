@@ -1,6 +1,6 @@
 <?php namespace Fitatu\Models;
 
-class ProductRepository
+class ProductRepository extends Repository
 {
     /**
      * ProductRepository constructor.
@@ -9,13 +9,5 @@ class ProductRepository
     public function __construct(Product $product)
     {
         $this->model = $product;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function all()
-    {
-        return $this->model->all();
     }
 }

@@ -21,5 +21,7 @@ Route::group(['namespace' => 'Fitatu\Controllers'], function () {
 	Route::get('products', ['as' => 'products', 'uses' => 'ProductController@index']);
 	Route::get('cart', ['as' => 'cart', 'uses' => 'CartController@index']);
 	Route::get('addToCart/{id}', ['as' => 'add-to-cart', 'uses' => 'CartController@add']);
+	Route::get('decrementItem/{id}', ['as' => 'decrement-item', 'uses' => 'CartController@decrementItem']);
+
 	Route::delete('removeFromCart/{id}', ['as' => 'remove-from-cart', 'uses' => 'CartController@remove']);
 });

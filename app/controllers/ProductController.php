@@ -1,17 +1,26 @@
 <?php namespace Fitatu\Controllers;
 
 use BaseController;
-use Fitatu\Models\Product;
+use Fitatu\Models\ProductRepository;
 use Illuminate\Support\Facades\View;
-
 
 class ProductController extends BaseController
 {
     protected $layout = 'layout.main';
 
+    /**
+     * @var ProductRepository
+     */
+    private $productRepository;
+
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     public function index()
     {
-        $products = app(Product::class)->all();
+        $products = $this->productRepository->all();
         $this->layout = View::make('products', compact('products'));
     }
 }
